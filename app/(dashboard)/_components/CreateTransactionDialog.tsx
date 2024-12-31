@@ -55,9 +55,9 @@ const CreateTransactionDialog = ({ trigger, type }: Props) => {
     resolver: zodResolver(CreateTransactionSchema),
     defaultValues: {
       type,
-      date: new Date(), // Must be included based on schema
-      description: "", // Optional
-      amount: 0, // Positive number
+      date: new Date(),
+      description: "",
+      amount: 0,
       category: "",
     },
   });
@@ -108,9 +108,7 @@ const CreateTransactionDialog = ({ trigger, type }: Props) => {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger>
-        <>{trigger}</>
-      </DialogTrigger>
+      <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>

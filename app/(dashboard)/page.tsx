@@ -35,28 +35,24 @@ const Page = async () => {
           <div className="flex items-center gap-3">
             <CreateTransactionDialog
               trigger={
-                <div>
-                  <Button
-                    variant={"outline"}
-                    className="border-emerald-500 bg-emerald-950 text-white hover:bg-emerald-900 hover:text-white"
-                  >
-                    New Income
-                  </Button>
-                </div>
+                <Button
+                  variant={"outline"}
+                  className="border-emerald-500 bg-emerald-950 text-white hover:bg-emerald-900 hover:text-white"
+                >
+                  New Income
+                </Button>
               }
               type="income"
             />
 
             <CreateTransactionDialog
               trigger={
-                <div>
-                  <Button
-                    variant={"outline"}
-                    className="border-emerald-500 bg-emerald-950 text-white hover:bg-emerald-900 hover:text-white"
-                  >
-                    New Expense
-                  </Button>
-                </div>
+                <Button
+                  variant={"outline"}
+                  className="border-emerald-500 bg-emerald-950 text-white hover:bg-emerald-900 hover:text-white"
+                >
+                  New Expense
+                </Button>
               }
               type="expense"
             />
