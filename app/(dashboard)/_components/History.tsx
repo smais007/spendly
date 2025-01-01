@@ -105,12 +105,15 @@ const History = ({ userSettings }: { userSettings: UserSettings }) => {
                   dataKey={(data) => {
                     const { year, month, day } = data;
                     const date = new Date(year, month, day || 1);
+
                     if (timeframe === "year") {
                       return date.toLocaleString("default", { month: "long" });
                     }
+
                     return date.toLocaleString("default", { day: "2-digit" });
                   }}
                 />
+
                 <YAxis
                   stroke="#888888"
                   fontSize={12}
@@ -156,6 +159,7 @@ const History = ({ userSettings }: { userSettings: UserSettings }) => {
 
 export default History;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CustomTooltip({ active, payload, formatter }: any) {
   if (!active || !payload || payload.length === 0) {
     return null;

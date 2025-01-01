@@ -4,7 +4,7 @@ import { DateRangePicker } from "@/components/ui/date-range-picker";
 import { MAX_DATE_RANGE_DAYS } from "@/lib/constants";
 import { UserSettings } from "@prisma/client";
 import { differenceInDays, startOfMonth } from "date-fns";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "sonner";
 import StatsCard from "./StatsCard";
 import CategoryStats from "./CategoryStats";
@@ -14,6 +14,20 @@ const Overview = ({ userSettings }: { userSettings: UserSettings }) => {
     from: startOfMonth(new Date()),
     to: new Date(),
   });
+
+  const [loading, setLoading] = React.useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+  }, []);
+
+  if (!loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+      </div>
+    );
+  }
 
   return (
     <>
